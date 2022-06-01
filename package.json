@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "new:book": "node new-post.js books",
+    "new:chapter": "node new-post.js chapters"
   },
   "dependencies": {
     "gray-matter": "^4.0.3",
