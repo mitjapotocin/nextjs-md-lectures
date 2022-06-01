@@ -35,4 +35,15 @@ Folder structure:
 
 All images should fe stored in the /public folder
 
-When defining a book you can include a list of chapters in the book's frontmatter.
+When defining a book you can include a list of chapters in the book's frontmatter. Chapter names must match folder names in the chapters folder.
+```
+---
+title: 'Example book'
+date: '2021-09-22'
+chapters:
+  - chapter1
+  - chapter2
+  - chapter3
+---
+```
+
