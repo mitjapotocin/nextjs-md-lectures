@@ -1,4 +1,4 @@
-This is a Markdown powered Next.js blog!
+# Documentation generator
 
 ## Getting Started
 
@@ -12,14 +12,25 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Learn More
+## Content
 
-This project is written for OpenReplay and you can find the full article here:
+Md Content is stored in the posts folder
+Folder structure:
 
-[Link to article](https://blog.openreplay.com/creating-a-markdown-blog-powered-by-next-js-in-under-an-hour)
+    .
+    ├── books
+        ├── book1
+            ├── index.md
+        ├── book2
+            ├── index.md
+    ├── chapters
+        ├── chapter1
+            ├── index.md
+        ├── chapter2
+            ├── index.md
+        ├── chapter3
+            ├── index.md
 
-## Deploy on Vercel
+All images should fe stored in the /public folder
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+When defining a book you can include a list of chapters in the book's frontmatter.

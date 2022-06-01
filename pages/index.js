@@ -4,11 +4,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 export async function getStaticProps() {
-  const files = fs.readdirSync('posts');
+  const files = fs.readdirSync('posts/books');
 
   const posts = files.map((fileName) => {
     const slug = fileName.replace('.md', '');
-    const readFile = fs.readFileSync(`posts/${fileName}`, 'utf-8');
+    const readFile = fs.readFileSync(`posts/books/${fileName}/index.md`, 'utf-8');
     const { data: frontmatter } = matter(readFile);
     return {
       slug,
@@ -29,17 +29,12 @@ export default function Home({ posts }) {
       {posts.map(({ slug, frontmatter }) => (
         <div
           key={slug}
-          className='border border-gray-200 m-2 rounded-xl shadow-lg overflow-hidden flex flex-col'
+          className='border border-gray-200 m-2 rounded-xl overflow-hidden flex flex-col'
         >
-          <Link href={`/post/${slug}`}>
-            <a>
-              <Image
-                width={650}
-                height={340}
-                alt={frontmatter.title}
-                src={`/${frontmatter.socialImage}`}
-              />
-              <h1 className='p-4'>{frontmatter.title}</h1>
+          <Link href={`/books/${slug}`}>
+            <a className="p-4">
+              <h1 className='text-xl bold'>{frontmatter.title}</h1>
+              <p>{frontmatter.metaTitle}</p>
             </a>
           </Link>
         </div>
