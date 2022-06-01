@@ -6,7 +6,7 @@ export async function getStaticProps() {
   const folders = fs.readdirSync('posts/books');
 
   const posts = folders
-    .filter(slug => slug !== '.DS_Store')
+    .filter(slug => !['.DS_Store', 'boilerplate.md'].includes(slug))
     .map((slug) => {
       const readFile = fs.readFileSync(`posts/books/${slug}/index.md`, 'utf-8');
       const { data: frontmatter } = matter(readFile);

@@ -1,10 +1,6 @@
 ---
 title: 'Orange Canvas applied to x-ray optics'
 date: '2014-08-26 15:59:00+00:00'
-socialImage: 'images/chapters/classification/fig1.png'
-tags:
-  - nextjs
-  - prisma
 ---
 
 Orange Canvas is being appropriated by guys who would like to use it as graphical environment for simulating x-ray optics.

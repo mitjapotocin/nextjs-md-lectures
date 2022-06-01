@@ -2,6 +2,7 @@ import fs from 'fs';
 import matter from 'gray-matter';
 import md from 'markdown-it';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export async function getStaticPaths() {
   const files = fs.readdirSync('posts/books/');
@@ -57,21 +58,56 @@ const Chapter = ({ frontmatter, content, slug, index }) => {
 }
 
 export default function PostPage({ frontmatter, content, chapters }) {
+  const aside = frontmatter.aside && [frontmatter.aside].flat(); 
+  
   return (
-      <div className='prose mx-auto'>
-          <h1>{frontmatter.title}</h1>
-
-          <div dangerouslySetInnerHTML={{ __html: md({html: true}).render(content) }} />
-
-          {chapters.map(({ frontmatter, content, slug }, index) => (
-              <Chapter
-                  key={frontmatter.title}
-                  frontmatter={frontmatter}
-                  content={content}
-                  slug={slug}
-                  index={index}
-              />
-          ))}
+    <div className='prose mx-auto'>
+      {frontmatter.coverImg && <div style={{
+        width: '30%',
+        marginLeft: 'auto',
+        borderRadius: '8px',
+        padding: '8px',
+        boxShadow: 'rgba(0, 0, 0, 0.24) 0px 3px 8px'
+      }}>
+        <Image
+          width={650}
+          height={650}
+          layout={'responsive'}
+          alt={frontmatter.coverImg}
+          src={`/${frontmatter.coverImg}`}
+        />
+      </div>}
+      
+      <h1 className='max-w-sm mb-0 text-emerald-500 font-medium'>
+          {frontmatter.title}
+      </h1>
+      <p className='text-red-600 text-xl mt-0 font-medium'>
+          {frontmatter.subTitle}
+      </p>
+      <div className='flex'>
+          {aside && (
+              <aside className='mr-8 self-end'>
+                  {frontmatter.aside.map((c, index) => (
+                      <p className='font-semibold' key={index}>{c}</p>
+                  ))}
+              </aside>
+          )}
+          <div
+              dangerouslySetInnerHTML={{
+                  __html: md({ html: true }).render(content),
+              }}
+          />
       </div>
+
+      {chapters.map(({ frontmatter, content, slug }, index) => (
+          <Chapter
+              key={frontmatter.title}
+              frontmatter={frontmatter}
+              content={content}
+              slug={slug}
+              index={index}
+          />
+      ))}
+    </div>
   );
 }
