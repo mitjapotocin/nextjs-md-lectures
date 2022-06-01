@@ -1,20 +1,21 @@
 import fs from 'fs';
 import matter from 'gray-matter';
-import Image from 'next/image';
 import Link from 'next/link';
 
 export async function getStaticProps() {
-  const files = fs.readdirSync('posts/books');
+  const folders = fs.readdirSync('posts/books');
 
-  const posts = files.map((fileName) => {
-    const slug = fileName.replace('.md', '');
-    const readFile = fs.readFileSync(`posts/books/${fileName}/index.md`, 'utf-8');
-    const { data: frontmatter } = matter(readFile);
-    return {
-      slug,
-      frontmatter,
-    };
-  });
+  const posts = folders
+    .filter(slug => slug !== '.DS_Store')
+    .map((slug) => {
+      const readFile = fs.readFileSync(`posts/books/${slug}/index.md`, 'utf-8');
+      const { data: frontmatter } = matter(readFile);
+      return {
+        slug,
+        frontmatter,
+      };
+    }
+  );
 
   return {
     props: {
