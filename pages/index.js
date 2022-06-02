@@ -35,7 +35,7 @@ export default function Home({ posts }) {
           <Link href={`/books/${slug}`}>
             <a className="p-4">
               <h1 className='text-xl bold'>{frontmatter.title}</h1>
-              <p>{frontmatter.metaTitle}</p>
+              <p>{frontmatter.subTitle}</p>
             </a>
           </Link>
         </div>

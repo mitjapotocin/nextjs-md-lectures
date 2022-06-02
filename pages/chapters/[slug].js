@@ -1,14 +1,13 @@
 import fs from 'fs';
 import matter from 'gray-matter';
 import md from 'markdown-it';
+import isAllowedPaths from '../../utils/helpers';
 
 export async function getStaticPaths() {
-  const files = fs.readdirSync('posts/chapters/');
-  const paths = files.map((fileName) => ({
-    params: {
-      slug: fileName,
-    },
-  }));
+  const paths = fs.readdirSync('posts/chapters/')
+    .filter(slug => isAllowedPaths(slug))
+    .map((slug) => ({ params: { slug } }));
+
   return {
     paths,
     fallback: false,

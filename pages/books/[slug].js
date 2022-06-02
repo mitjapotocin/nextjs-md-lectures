@@ -3,15 +3,13 @@ import matter from 'gray-matter';
 import md from 'markdown-it';
 import Link from 'next/link';
 import Image from 'next/image';
+import isAllowedPaths from '../../utils/helpers';
 
 export async function getStaticPaths() {
-  const files = fs.readdirSync('posts/books/');
+  const paths = fs.readdirSync('posts/books/')
+    .filter(slug => isAllowedPaths(slug))
+    .map((slug) => ({ params: { slug } }));
 
-  const paths = files.map((fileName) => ({
-    params: {
-      slug: fileName
-    },
-  }));
   return {
     paths,
     fallback: false,
