@@ -38,12 +38,27 @@ All images should fe stored in the /public folder
 When defining a book you can include a list of chapters in the book's frontmatter. Chapter names must match folder names in the chapters folder.
 ```
 ---
-title: 'Example book'
-date: '2021-09-22'
+title: 'Single-Cell Gene Expression Analysis'
+subTitle: 'Working notes for the course on Functional Genomics and Proteomics, University of Ljubljana'
+coverImg: 'images/books/sc-gene-expression/orange.png'
+date: 'May 2022'
+aside:
+  - These notes include orange workflows and visualizations we will construct during the course. 
+  - These notes were written by Blaž Zupan with a huge help from the members of the Bioinformatics Lab in Ljubljana that develop and maintain orange. In part, we have reused lecture notes for Orange and orange workshops as designed by the same group.
 chapters:
-  - chapter1
-  - chapter2
-  - chapter3
+  - classification
+  - regression
 ---
 ```
+ 
+To create a new book or chapter run following command:
 
+New book:
+```
+npm run new:book -- <book-name>
+```
+
+New new chapter:
+```
+npm run new:book -- <chapter-name>
+```
