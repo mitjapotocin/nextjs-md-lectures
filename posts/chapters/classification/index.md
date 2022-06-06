@@ -30,8 +30,20 @@ export async function getStaticPaths() {
 }
 
 ```
+Manuel Sanchez del Rio, from [The European Synchrotron Facility](http://www.esrf.eu/) in Grenoble, France, and Luca Rebuffi from [Elettra-Sincrotrone, Trieste](http://www.elettra.trieste.it/), Italy, were looking for a tool that would help them integrate the various tools for x-ray optics simulations, like the popular SHADOW and SRW. They discovered that the data workflow paradigm, like the one used in Orange Canvas, fits their needs perfectly. They took Orange, and replaced the existing widgets with new widgets that represent sources of photons (bending magnets, in the case of ESRF), various optical elements, like lenses and mirrors, and detectors. The channels between the widgets no longer pass data tables, like in the standard Orange, but rays of photons. How cool is this?
 
+
+<div 
+  data-image-120 
+  data-float-left
+  >
+</div>
+
+![alt text](/images/chapters/classification/fig1.png)
+
+
+Manuel Sanchez del Rio, from [The European Synchrotron Facility](http://www.esrf.eu/) in Grenoble, France, and Luca Rebuffi from [Elettra-Sincrotrone, Trieste](http://www.elettra.trieste.it/), Italy, were looking for a tool that would help them integrate the various tools for x-ray optics simulations, like the popular SHADOW and SRW. They discovered that the data workflow paradigm, like the one used in Orange Canvas, fits their needs perfectly. They took Orange, and replaced the existing widgets with new widgets that represent sources of photons (bending magnets, in the case of ESRF), various optical elements, like lenses and mirrors, and detectors. The channels between the widgets no longer pass data tables, like in the standard Orange, but rays of photons. How cool is this?
 <figure>
   <img src="/images/chapters/classification/fig1.png" >
-  <figcaption>Manuel Sanchez del Rio, from The European Synchrotron Facility in Grenoble, France, and Luca Rebuffi from Elettra-Sincrotrone, Trieste</figcaption>
+ 
 </figure>
