@@ -3,7 +3,7 @@ import matter from 'gray-matter';
 import md from 'markdown-it';
 import Link from 'next/link';
 import Image from 'next/image';
-import isAllowedPaths from '../../utils/helpers';
+import { isAllowedPaths, parseMd } from '../../utils/helpers';
 
 export async function getStaticPaths() {
   const paths = fs.readdirSync('posts/books/')
@@ -82,29 +82,36 @@ export default function PostPage({ frontmatter, content, chapters }) {
       <p className='text-red-600 text-xl mt-0 font-medium'>
           {frontmatter.subTitle}
       </p>
-      <div className='flex'>
+      <div className='flex-container'>
           {aside && (
-              <aside className='mr-8 self-end'>
+              <aside className='aside'>
                   {frontmatter.aside.map((c, index) => (
                       <p className='font-semibold' key={index}>{c}</p>
                   ))}
               </aside>
           )}
-          <div
+          <div  className='right-column'
               dangerouslySetInnerHTML={{
-                  __html: md({ html: true }).render(content),
+                  __html: md({ html: true }).render(parseMd(content)),
               }}
           />
       </div>
 
       {chapters.map(({ frontmatter, content, slug }, index) => (
-          <Chapter
-              key={frontmatter.title}
-              frontmatter={frontmatter}
-              content={content}
-              slug={slug}
-              index={index}
-          />
+        <div
+          key={frontmatter.title}
+          className='flex-container'>
+
+          <div className='right-column'>
+
+            <Chapter
+                frontmatter={frontmatter}
+                content={parseMd(content)}
+                slug={slug}
+                index={index}
+            />
+          </div>
+        </div>
       ))}
     </div>
   );

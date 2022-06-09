@@ -6,14 +6,16 @@ html {
     font-family: auto;
 }
 
-.prose {
-    max-width: 762px;
-}
-
+$img-margin: 8px;
+$aside-width: 260px;
+$gap: 32px;
 $max-size: 140;
 
+/*
+ * Commands, that are used in MD
+ */
 @for $i from 10 through $max-size {
-    [data-image-#{$i}] {
+    [data-width-#{$i}] {
         + * img { 
             width: $i * 1%;
             max-width: $i * 1%;
@@ -21,12 +23,18 @@ $max-size: 140;
     }
 }
 
-$img-margin: 8px;
+[data-width-max] {
+    + * img { 
+        width: calc(100% + $aside-width + $gap);
+        max-width: calc(100% + $aside-width + $gap);
+        margin-left: - calc($aside-width + $gap) !important;
+    }
+}
 
 [data-float-left] {
     + * img { 
         float: left;
-        margin: 0 $img-margin 0 0;
+        margin: 0 $img-margin 0 0 !important;
     }
 }
 
@@ -34,7 +42,100 @@ $img-margin: 8px;
     + * img { 
         float: right;
         margin: 0;
-        margin: 0 0 0 $img-margin;
+        margin: 0 0 0 $img-margin !important;
     }
 }
 
+[data-float-aside] + p {
+    margin: 0;
+    position: absolute;
+    width: $aside-width;
+    font-weight: 600;
+    transform: translateX(calc(-100% - $gap));
+
+    img {
+        margin-top: 8px !important;
+        margin-bottom: 8px !important;
+    }
+}
+
+
+/*
+ * Layout
+ */
+.flex-container {
+    display: flex;
+
+    .aside {
+        width: $aside-width;
+        margin-right: 32px;
+    }
+
+    .right-column {
+        margin-left: auto;
+        width: calc(100% - $aside-width - 32px);
+    }
+}
+
+.prose {
+    max-width: 882px;
+
+    p img {
+        margin: 0;
+    }
+}
+
+/*
+ * Editor
+ */
+.md-editor {
+    position: fixed;
+    z-index: 10;
+    left: 10px;
+    top: 64px;
+    border: 2px solid;
+    border-radius: 8px;
+    box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
+    padding: 8px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(2px);
+
+    textarea {
+        padding: 8px;
+        width: 750px;
+        height: 80vh;
+        background: transparent;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    &.small {
+        textarea {
+            width: 180px;
+            height: 280px;
+        }
+    }
+
+    .editor-toolbar {
+        display: flex;
+        padding-bottom: 8px;
+        border-bottom: 1px solid;
+    }
+
+    .icon-button {
+        display: inline-block;
+        padding: 7px;
+        border-radius: 8px;
+        cursor: pointer;
+        user-select: none;
+        font-size: 22px;
+        transition: all .1s;
+        border: 1px solid transparent;
+        
+        &:hover {
+            background: rgba(0, 0, 0, 0.08);
+        }
+    }
+}
