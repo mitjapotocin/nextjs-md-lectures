@@ -7,7 +7,7 @@ import { isAllowedPaths, parseMd } from '../../utils/helpers';
 
 export async function getStaticPaths() {
   const paths = fs.readdirSync('posts/books/')
-    .filter(slug => isAllowedPaths(slug))
+    .filter((slug) => isAllowedPaths(slug))
     .map((slug) => ({ params: { slug } }));
 
   return {
