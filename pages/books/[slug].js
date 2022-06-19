@@ -59,14 +59,8 @@ export default function PostPage({ frontmatter, content, chapters }) {
   const aside = frontmatter.aside && [frontmatter.aside].flat(); 
   
   return (
-    <div className='prose mx-auto'>
-      {frontmatter.coverImg && <div style={{
-        width: '30%',
-        marginLeft: 'auto',
-        borderRadius: '8px',
-        padding: '8px',
-        boxShadow: 'rgba(0, 0, 0, 0.24) 0px 3px 8px'
-      }}>
+    <div className='prose mx-auto book'>
+      {frontmatter.coverImg && <div className="book-cover-img">
         <Image
           width={650}
           height={650}
@@ -83,13 +77,6 @@ export default function PostPage({ frontmatter, content, chapters }) {
           {frontmatter.subTitle}
       </p>
       <div className='flex-container'>
-          {aside && (
-              <aside className='aside'>
-                  {frontmatter.aside.map((c, index) => (
-                      <p className='font-semibold' key={index}>{c}</p>
-                  ))}
-              </aside>
-          )}
           <div  className='right-column'
               dangerouslySetInnerHTML={{
                   __html: md({ html: true }).render(parseMd(content)),

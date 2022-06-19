@@ -32,7 +32,7 @@ export default function Home({ posts }) {
       {posts.map(({ slug, frontmatter }) => (
         <div className='book' key={slug}>
           <Link href={`/books/${slug}`}>
-            <a className="p-4">
+            <a>
               <h2>{frontmatter.title}</h2>
               <p>{frontmatter.subTitle}</p>
             </a>

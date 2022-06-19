@@ -161,11 +161,11 @@ $max-size: 140;
         font-weight: 300;
         text-align: center;
     }
-
+    
     .book {
-        + .book {
-            border-top: 1px solid rgba(0, 0, 0, 0.1);
-        }
+        border-left: 4px solid #f79211;
+        padding: 4px 12px;
+        margin: 32px 0 ;
     }
 
     h2 {
@@ -200,5 +200,19 @@ $max-size: 140;
         &:hover {
             color: #f79211;
         }
+    }
+}
+
+////////
+// Book
+////////
+.book {
+    .book-cover-img {
+        width: 30%;
+        margin-left: auto;
+        margin-bottom: 12px;
+        border-radius: 8px;
+        padding: 8px;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     }
 }
