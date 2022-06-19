@@ -50,7 +50,7 @@ $max-size: 140;
     margin: 0;
     position: absolute;
     width: $aside-width;
-    font-weight: 600;
+    font-weight: 400 !important;
     transform: translateX(calc(-100% - $gap));
 
     img {
@@ -79,9 +79,16 @@ $max-size: 140;
 
 .prose {
     max-width: 882px;
+    color: #000;
 
     p img {
         margin: 0;
+    }
+
+    p {
+        line-height: 1.42;
+        margin: 10px 0;
+        font-weight: 300;
     }
 }
 
@@ -136,6 +143,62 @@ $max-size: 140;
         
         &:hover {
             background: rgba(0, 0, 0, 0.08);
+        }
+    }
+}
+
+/////////////
+// Home page
+/////////////
+.home {
+    max-width: 1170px;
+    margin: 0 auto;
+
+    h1 {
+        font-size: 34px;
+        margin-bottom: 62px;
+        margin-top: 15px;
+        font-weight: 300;
+        text-align: center;
+    }
+
+    .book {
+        + .book {
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+    }
+
+    h2 {
+        font-weight: 500;
+    }
+    
+    p {
+        font-weight: 300;
+    }
+}
+
+///////
+// Nav
+///////
+.nav {
+    box-shadow: 0 0 4px rgb(0 0 0 / 40%);
+    height: 80px;
+    display: flex;
+    align-items: center;
+
+    a {
+        font-weight: 400;
+        font-size: 18px;
+        margin-right: 0;
+        padding: 6px;
+        transition: all .1s;
+
+        + a {
+            margin-left: 32px;
+        }
+
+        &:hover {
+            color: #f79211;
         }
     }
 }

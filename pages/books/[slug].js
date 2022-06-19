@@ -42,13 +42,13 @@ export async function getStaticProps({ params: { slug } }) {
 const Chapter = ({ frontmatter, content, slug, index }) => { 
   return (
     <div className='prose mx-auto mt-8'>
-      <Link href={`/chapters/${slug}`}>
-        <a>
-          <h2 className='underline text-emerald-500'>
-          🔗 Chapter {index + 1}: {frontmatter.title}
+      {/* <Link href={`/chapters/${slug}`}>
+        <a> */}
+          <h2 className='text-emerald-400'>
+            Chapter {index + 1}: {frontmatter.title}
           </h2>
-        </a>
-      </Link>
+        {/* </a>
+      </Link> */}
 
       <div dangerouslySetInnerHTML={{ __html: md({html: true}).render(content) }} />
   </div>

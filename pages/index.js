@@ -26,15 +26,14 @@ export async function getStaticProps() {
 
 export default function Home({ posts }) {
   return (
-    <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 p-4 md:p-0'>
+    <div className='home'>
+      <h1>Lecture notes</h1>
+
       {posts.map(({ slug, frontmatter }) => (
-        <div
-          key={slug}
-          className='border border-gray-200 m-2 rounded-xl overflow-hidden flex flex-col'
-        >
+        <div className='book' key={slug}>
           <Link href={`/books/${slug}`}>
             <a className="p-4">
-              <h1 className='text-xl bold'>{frontmatter.title}</h1>
+              <h2>{frontmatter.title}</h2>
               <p>{frontmatter.subTitle}</p>
             </a>
           </Link>
