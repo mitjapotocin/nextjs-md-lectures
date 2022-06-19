@@ -3,5 +3,6 @@ module.exports = {
   images: {
     loader: 'custom',
   },
-  basePath: '/nextjs-md-documentation'
+  basePath: process.env.NEXT_PUBLIC_BASE_PATH,
+  assetPrefix: process.env.NEXT_PUBLIC_BASE_PATH
 }
