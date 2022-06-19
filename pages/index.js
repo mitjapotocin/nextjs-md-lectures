@@ -14,8 +14,8 @@ export async function getStaticProps() {
         slug,
         frontmatter,
       };
-    }
-  );
+    })
+    .filter(({ frontmatter }) => frontmatter.public);
 
   return {
     props: {

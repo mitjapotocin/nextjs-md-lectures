@@ -3,7 +3,10 @@ title: 'Introduction to data analysis'
 subTitle: 'A hand on lecture at University of Ljubljana'
 coverImg: 'images/books/sc-gene-expression/orange.png'
 date: 'May 1986'
-chapters: []
+public: true
+chapters:
+    - workflows-in-orange
+    - workflows-in-orange
 ---
 
 This is an accompany material for the short, four-hour lecture for

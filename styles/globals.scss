@@ -47,7 +47,7 @@ $max-size: 140;
 }
 
 [data-float-aside] + p {
-    margin: 0;
+    margin: 0 !important;
     position: absolute;
     width: $aside-width;
     font-weight: 400 !important;
@@ -83,6 +83,10 @@ $max-size: 140;
 
     p img {
         margin: 0;
+    }
+
+    li {
+        font-weight: 300;
     }
 
     p {
@@ -214,5 +218,24 @@ $max-size: 140;
         border-radius: 8px;
         padding: 8px;
         box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    }
+
+    h1 {
+        color: rgb(52 211 153);
+    }
+
+    .subtitle {
+        color: #f79211;
+        font-size: 19px;
+        margin-bottom: 32px;
+    }
+}
+
+.chapter {
+    h2.chapter-title {
+        color: rgb(52 211 153);
+        margin-top: 108px;
+        margin-bottom: 36px;
+        font-weight: 400;
     }
 }

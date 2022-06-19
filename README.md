@@ -42,23 +42,29 @@ title: 'Single-Cell Gene Expression Analysis'
 subTitle: 'Working notes for the course on Functional Genomics and Proteomics, University of Ljubljana'
 coverImg: 'images/books/sc-gene-expression/orange.png'
 date: 'May 2022'
-aside:
-  - These notes include orange workflows and visualizations we will construct during the course. 
-  - These notes were written by Blaž Zupan with a huge help from the members of the Bioinformatics Lab in Ljubljana that develop and maintain orange. In part, we have reused lecture notes for Orange and orange workshops as designed by the same group.
 chapters:
   - classification
   - regression
 ---
 ```
- 
+
+***I recommend using the script for creating new books/chapters it will create folders and an boilerplate index.md file***
 To create a new book or chapter run following command:
 
 New book:
 ```
-npm run new:book -- <book-name>
+npm run new:book -- <book-name-use-dash-case>
 ```
 
 New new chapter:
 ```
-npm run new:book -- <chapter-name>
+npm run new:chapter -- <chapter-use-dash-case>
 ```
+
+### Chapters formatting and images
+See /posts/chapters/boilerplate.md for documentation and examples.
+
+You can try the md editor to see results in real time.
+`https://nextjs-md-documentation.vercel.app/editor`
+or
+`<localhost>/editor`

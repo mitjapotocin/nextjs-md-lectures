@@ -1,7 +1,6 @@
 import fs from 'fs';
 import matter from 'gray-matter';
 import md from 'markdown-it';
-import Link from 'next/link';
 import Image from 'next/image';
 import { isAllowedPaths, parseMd } from '../../utils/helpers';
 
@@ -39,25 +38,18 @@ export async function getStaticProps({ params: { slug } }) {
   };
 }
 
-const Chapter = ({ frontmatter, content, slug, index }) => { 
+const Chapter = ({ frontmatter, content, index }) => { 
   return (
-    <div className='prose mx-auto mt-8'>
-      {/* <Link href={`/chapters/${slug}`}>
-        <a> */}
-          <h2 className='text-emerald-400'>
-            Chapter {index + 1}: {frontmatter.title}
-          </h2>
-        {/* </a>
-      </Link> */}
-
+    <div className='prose mx-auto mt-8 chapter'>
+        <h2 className='chapter-title'>
+          Chapter {index + 1}: {frontmatter.title}
+        </h2>
       <div dangerouslySetInnerHTML={{ __html: md({html: true}).render(content) }} />
   </div>
   );
 }
 
 export default function PostPage({ frontmatter, content, chapters }) {
-  const aside = frontmatter.aside && [frontmatter.aside].flat(); 
-  
   return (
     <div className='prose mx-auto book'>
       {frontmatter.coverImg && <div className="book-cover-img">
@@ -70,10 +62,10 @@ export default function PostPage({ frontmatter, content, chapters }) {
         />
       </div>}
       
-      <h1 className='max-w-sm mb-0 text-emerald-500 font-medium'>
+      <h1 className='max-w-sm mb-0 font-medium'>
           {frontmatter.title}
       </h1>
-      <p className='text-red-600 text-xl mt-0 font-medium'>
+      <p className='subtitle'>
           {frontmatter.subTitle}
       </p>
       <div className='flex-container'>

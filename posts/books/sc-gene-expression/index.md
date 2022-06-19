@@ -3,12 +3,10 @@ title: 'Single-Cell Gene Expression Analysis'
 subTitle: 'Working notes for the course on Functional Genomics and Proteomics, University of Ljubljana'
 coverImg: 'images/books/sc-gene-expression/orange.png'
 date: 'May 2022'
-aside:
-  - These notes include orange workflows and visualizations we will construct during the course. 
-  - These notes were written by Blaž Zupan with a huge help from the members of the Bioinformatics Lab in Ljubljana that develop and maintain orange. In part, we have reused lecture notes for Orange and orange workshops as designed by the same group.
+public: true
 chapters:
-  - classification
-  - regression
+  - workflows-in-orange
+  - workflows-in-orange
 ---
 
 Welcome! We have designed this workshop for students of
@@ -23,6 +21,7 @@ installation package from https://orange.biolab.si, install Orange,
 and then install the add-ons for Bioinformatics and Single-Cell
 Data Analysis.
 
-![Some image](/images/books/sc-gene-expression/fig1.png)
+<!!! width-30 !!!>
+![](/images/books/sc-gene-expression/fig1.png)
 
 ***Attribution-NonCommercial-NoDerivs CC BY-NC-ND***

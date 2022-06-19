@@ -21,4 +21,8 @@ fs.mkdir(`./posts/${postType}/${folderName}/`, { recursive: true }, (err) => {
             console.log(`New book ${folderName} was created.`);
         }
     );
+
 });
+fs.mkdir(`./public/images/${postType}/${folderName}/`, { recursive: true }, (err) => { 
+    if (err) throw err;
+})
