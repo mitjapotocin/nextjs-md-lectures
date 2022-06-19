@@ -7,6 +7,8 @@ public: true
 chapters:
     - workflows-in-orange
     - workflows-in-orange
+    - workflows-in-orange
+    - workflows-in-orange
 ---
 
 This is an accompany material for the short, four-hour lecture for

@@ -32,7 +32,7 @@ export default function PostPage({ content }) {
       <div
         className={small ? 'small md-editor' : 'md-editor'}>
 
-        <div className='editor-toolbar'>
+        <div className='toolbar'>
           <button
             className='icon-button'
             onClick={() => setSmall(!small)}>
