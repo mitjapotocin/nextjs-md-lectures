@@ -1,7 +1,7 @@
 import fs from 'fs';
 import matter from 'gray-matter';
 import md from 'markdown-it';
-import Image from 'next/image';
+import Image from '../../components/Image';
 import { ImShrink2, ImEnlarge2 } from "react-icons/im";
 import Link from 'next/link';
 import { useState } from 'react';
