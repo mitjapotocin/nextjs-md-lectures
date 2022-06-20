@@ -5,12 +5,12 @@ import Image from '../../components/Image';
 import { ImShrink2, ImEnlarge2 } from "react-icons/im";
 import Link from 'next/link';
 import { useState } from 'react';
-import { isAllowedPaths, parseMd } from '../../utils/helpers';
+import { isAllowedPath, parseMd } from '../../utils/helpers';
 
 
 export async function getStaticPaths() {
   const paths = fs.readdirSync('public/books/')
-    .filter((slug) => isAllowedPaths(slug))
+    .filter(isAllowedPath)
     .map((slug) => ({ params: { slug } }));
 
   return {

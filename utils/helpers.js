@@ -1,5 +1,4 @@
-
-export function isAllowedPaths(slug) {
+export function isAllowedPath(slug) {
     return !(slug.includes('.DS_Store') || slug.includes('.md'));
 }
 
@@ -33,6 +32,6 @@ export function parseMd(content, imgRelativePath = '') {
 }
 
 module.exports = {
-    isAllowedPaths,
+    isAllowedPath,
     parseMd
 };

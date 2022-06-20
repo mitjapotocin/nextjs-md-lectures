@@ -1,6 +1,6 @@
 const fs = require('fs');
-let postType = process.argv.at(2)
-let folderName = process.argv.at(3)
+const postType = process.argv.at(2)
+const folderName = process.argv.at(3)
 
 if (!postType || ['books', 'chapters'].indexOf(postType) === -1) {
     throw 'Please specify a post type: "book" or "chapter"';
@@ -10,19 +10,36 @@ if (!folderName) {
     return;
 }
 
-fs.mkdir(`./${postType}/${folderName}/`, { recursive: true }, (err) => {
+const boilerplatePath = `./public/${postType}`;
+const folderPath = `./public/${postType}/${folderName}`;
+
+fs.mkdir(`${folderPath}/`, { recursive: true }, (err) => {
     if (err) throw err;
 
+    /**
+     * Copy boilerplate.md
+     */
     fs.copyFile(
-        `./${postType}/boilerplate.md`,
-        `./${postType}/${folderName}/index.md`,
+        `${boilerplatePath}/boilerplate.md`,
+        `${folderPath}/index.md`,
         (err) => {
             if (err) throw err;
-            console.log(`New book ${folderName} was created.`);
+
+            console.log('=-=-=-=-=-=-=-=-=')
+            console.log('')
+            console.log(`New ${postType} ${folderName} was created.`);
+            console.log('')
+            console.log('=-=-=-=-=-=-=-=-=')
+            console.log('')
         }
     );
 
+    /**
+     * Copy example image if exists
+     */
+    fs.copyFile(
+        `${boilerplatePath}/example.png`,
+        `${folderPath}/example.png`,
+        () => { } // no error handling
+    );
 });
-fs.mkdir(`./public/images/${postType}/${folderName}/`, { recursive: true }, (err) => { 
-    if (err) throw err;
-})
