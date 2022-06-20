@@ -16,7 +16,8 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Content
 
-Md Content is stored in the public folder
+Md Content is stored in the public folder.
+
 Folder structure:
 
     .
@@ -64,7 +65,7 @@ npm run new:chapter -- <chapter-use-dash-case>
 ```
 
 ### Chapters formatting and images
-See /chapters/boilerplate.md for documentation and examples.
+See /public/chapters/boilerplate.md for documentation and examples.
 
 You can try the md editor to see results in real time.
 `https://nextjs-md-documentation.vercel.app/editor`

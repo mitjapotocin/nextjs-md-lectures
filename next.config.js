@@ -1,8 +1,6 @@
 module.exports = {
   reactStrictMode: true,
-  // basePath: '',
-  // assetPrefix: '/',
   images: {
-    loader: 'custom',
-  },
+    loader: 'custom', // Remove this if it will be deployed on Vercel
+  }
 }

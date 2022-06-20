@@ -1,6 +1,8 @@
 import NextImage from "next/image";
 
-// opt-out of image optimization, no-op
+// Remove this, if it will be deployed on Vercel
+// This is needed to make NextImage work on GH pages
+// Opt-out of image optimization
 const customLoader = ({ src }) => {
   return src
 }
