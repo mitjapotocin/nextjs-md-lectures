@@ -9,7 +9,7 @@ import { isAllowedPaths, parseMd } from '../../utils/helpers';
 
 
 export async function getStaticPaths() {
-  const paths = fs.readdirSync('posts/books/')
+  const paths = fs.readdirSync('public/books/')
     .filter((slug) => isAllowedPaths(slug))
     .map((slug) => ({ params: { slug } }));
 
@@ -20,11 +20,11 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params: { slug } }) {
-  const fileName = fs.readFileSync(`posts/books/${slug}/index.md`, 'utf-8');
+  const fileName = fs.readFileSync(`public/books/${slug}/index.md`, 'utf-8');
   const { data: frontmatter, content } = matter(fileName);
   
   const chapters = (frontmatter.chapters || []).map(slug => {
-    const fileName = fs.readFileSync(`posts/chapters/${slug}/index.md`, 'utf-8');
+    const fileName = fs.readFileSync(`public/chapters/${slug}/index.md`, 'utf-8');
     const { data: frontmatter, content } = matter(fileName);
     return {
       frontmatter,
@@ -37,7 +37,8 @@ export async function getStaticProps({ params: { slug } }) {
     props: {
       frontmatter,
       content,
-      chapters
+      chapters,
+      slug
     },
   };
 }
@@ -46,7 +47,9 @@ const getTitleId = (title, index = '') => {
   return index + '-' + title.replace(/\s/g, '-').toLowerCase();
 }
 
-const Chapter = ({ frontmatter, content, index }) => { 
+const Chapter = ({ frontmatter, content, index, slug }) => { 
+  let parsedMd = parseMd(content, `/chapters/${slug}`);
+  
   return (
     <div className='prose mx-auto mt-8 chapter'>
       <h2
@@ -54,7 +57,7 @@ const Chapter = ({ frontmatter, content, index }) => {
         id={getTitleId(frontmatter.title, index + 1)}>
           Chapter {index + 1}: {frontmatter.title}
       </h2>
-    <div dangerouslySetInnerHTML={{ __html: md({html: true}).render(content) }} />
+    <div dangerouslySetInnerHTML={{ __html: md({html: true}).render(parsedMd) }} />
   </div>
   );
 }
@@ -90,7 +93,10 @@ const ContentIndex = ({ chapters }) => {
   )
 }
 
-export default function PostPage({ frontmatter, content, chapters }) {
+export default function PostPage({ frontmatter, content, chapters, slug }) {
+  let relativePath = `/books/${slug}`;
+  let parsedMd = parseMd(content, relativePath);
+
   return (
     <div className='prose mx-auto book'>
       {frontmatter.coverImg && <div className="book-cover-img">
@@ -98,8 +104,8 @@ export default function PostPage({ frontmatter, content, chapters }) {
           width={650}
           height={650}
           layout={'responsive'}
-          alt={frontmatter.coverImg}
-          src={`/${frontmatter.coverImg}`}
+          alt={'cover image'}
+          src={`${relativePath}/${frontmatter.coverImg}`}
         />
       </div>}
       
@@ -112,7 +118,7 @@ export default function PostPage({ frontmatter, content, chapters }) {
       <div className='flex-container'>
           <div  className='right-column'
               dangerouslySetInnerHTML={{
-                  __html: md({ html: true }).render(parseMd(content)),
+                  __html: md({ html: true }).render(parsedMd),
               }}
           />
       </div>
@@ -128,7 +134,7 @@ export default function PostPage({ frontmatter, content, chapters }) {
 
             <Chapter
                 frontmatter={frontmatter}
-                content={parseMd(content)}
+                content={content}
                 slug={slug}
                 index={index}
             />

@@ -1,7 +1,7 @@
 ---
 title: 'Single-Cell Gene Expression Analysis'
 subTitle: 'Working notes for the course on Functional Genomics and Proteomics, University of Ljubljana'
-coverImg: 'images/books/sc-gene-expression/orange.png'
+coverImg: '/orange.png'
 date: 'May 2022'
 public: true
 chapters:

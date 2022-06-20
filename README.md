@@ -62,7 +62,7 @@ npm run new:chapter -- <chapter-use-dash-case>
 ```
 
 ### Chapters formatting and images
-See /posts/chapters/boilerplate.md for documentation and examples.
+See /chapters/boilerplate.md for documentation and examples.
 
 You can try the md editor to see results in real time.
 `https://nextjs-md-documentation.vercel.app/editor`
