@@ -3,7 +3,12 @@ export function isAllowedPaths(slug) {
     return !(slug.includes('.DS_Store') || slug.includes('.md'));
 }
 
-export function parseMd(content) {
+export function parseMd(content, imgRelativePath = '') {
+    if (imgRelativePath) {
+        content = content.replaceAll('](/', `](${imgRelativePath}/`);
+        content = content.replaceAll('src="/', `img src="${imgRelativePath}/`);
+    }
+    
     const macroStart = '<!!!';
     const macroEnd = '!!!>';
 

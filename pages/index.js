@@ -3,12 +3,12 @@ import matter from 'gray-matter';
 import Link from 'next/link';
 
 export async function getStaticProps() {
-  const folders = fs.readdirSync('posts/books');
+  const folders = fs.readdirSync('public/books');
 
   const posts = folders
     .filter(slug => !['.DS_Store', 'boilerplate.md'].includes(slug))
     .map((slug) => {
-      const readFile = fs.readFileSync(`posts/books/${slug}/index.md`, 'utf-8');
+      const readFile = fs.readFileSync(`public/books/${slug}/index.md`, 'utf-8');
       const { data: frontmatter } = matter(readFile);
       return {
         slug,

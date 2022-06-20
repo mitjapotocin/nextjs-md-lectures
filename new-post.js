@@ -10,12 +10,12 @@ if (!folderName) {
     return;
 }
 
-fs.mkdir(`./posts/${postType}/${folderName}/`, { recursive: true }, (err) => {
+fs.mkdir(`./${postType}/${folderName}/`, { recursive: true }, (err) => {
     if (err) throw err;
 
     fs.copyFile(
-        `./posts/${postType}/boilerplate.md`,
-        `./posts/${postType}/${folderName}/index.md`,
+        `./${postType}/boilerplate.md`,
+        `./${postType}/${folderName}/index.md`,
         (err) => {
             if (err) throw err;
             console.log(`New book ${folderName} was created.`);

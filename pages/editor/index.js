@@ -7,7 +7,7 @@ import { ImShrink2, ImEnlarge2 } from "react-icons/im";
 import { parseMd } from '../../utils/helpers';
 
 export async function getStaticProps() {
-  const fileName = fs.readFileSync(`posts/chapters/boilerplate.md`, 'utf-8');
+  const fileName = fs.readFileSync(`public/chapters/boilerplate.md`, 'utf-8');
   const { content } = matter(fileName);
   
   return {

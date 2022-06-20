@@ -9,7 +9,7 @@ the widgets on a drawing board called the “canvas” to design a workflow. Wid
 another.
 
 <!!! width-max !!!>
-![](/images/chapters/workflows-in-orange/workflow-fig1.png)
+![](/workflow-fig1.png)
 
 <!!! float-aside !!!>
 A simple workflow with two connected
@@ -33,7 +33,7 @@ data in a spreadsheet, while the Scatter Plot visualizes it. The plot’s select
 widgets: Data Table (1) and Scatter
 Plot (1).
 
-![](/images/chapters/workflows-in-orange/workflow-fig2.png)
+![](/workflow-fig2.png)
 
 The File widget reads data from your local disk. Open the File
 widget by double-clicking its icon. Orange comes with several preloaded data sets. From these (“Browse documentation data sets...”),
@@ -49,7 +49,7 @@ yeast under various conditions, one column (marked as a ”meta attribute”)
 provides gene names, and one column contains the ”class” value or gene
 function.
 
-![](/images/chapters/workflows-in-orange/file-brown.png)
+![](/file-brown.png)
 
 After you load the data:
 1. Open the other widgets.
@@ -68,11 +68,11 @@ to a biologist?
 
 <!!! float-aside !!!>
 <p>
-    <img src="/images/chapters/workflows-in-orange/score-plots.png" />
+    <img src="/score-plots.png" />
     Scatter Plot and Ranking
 </p>
 
-![](/images/chapters/workflows-in-orange/scatterplot-brown.png)
+![](/scatterplot-brown.png)
 
 We can connect the output of the Data Table widget to the Scatter
 Plot widget to highlight the chosen data instances (rows) in the scatter
@@ -82,7 +82,7 @@ plot.
 In this workflow, we have switched on
 the option ”Show channel names between widgets” in File/Preferences.
 
-![](/images/chapters/workflows-in-orange/workflow-fig5.png)
+![](/workflow-fig5.png)
 
 How does Orange distinguish between the primary data source and
 the data selection? It uses the first connected signal as the entire data
@@ -90,11 +90,11 @@ set and the second one as its subset. To make changes or to check
 what is happening under the hood, double click on the line connecting
 the two widgets.
 
-![](/images/chapters/workflows-in-orange/workflow-fig6.png)
+![](/workflow-fig6.png)
 
 <!!! float-aside !!!>
 Orange comes with a basic set of widgets for data input, preprocessing, visualization and modeling. For other tasks, like text mining, network analysis, and bioinformatics, there are add-ons. Check them out by selecting Add-ons... from the Options menu.
 
 The rows in the data set we are exploring in this lesson are gene profiles. We could perhaps use widgets from the Bioinformatics add-on to get more information on the genes we selected in any of the widgets.
 
-![](/images/chapters/workflows-in-orange/workflow-fig7.png)
+![](/workflow-fig7.png)
