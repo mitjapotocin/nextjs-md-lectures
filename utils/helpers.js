@@ -5,10 +5,11 @@ export function isAllowedPaths(slug) {
 
 export function parseMd(content, imgRelativePath = '') {
     if (imgRelativePath) {
-        content = content.replaceAll('](/', `](${imgRelativePath}/`);
-        content = content.replaceAll('src="/', `img src="${imgRelativePath}/`);
+        content = content
+            .replaceAll('](/', `](${imgRelativePath}/`)
+            .replaceAll('src="/', `img src="${imgRelativePath}/`);
     }
-    
+
     const macroStart = '<!!!';
     const macroEnd = '!!!>';
 

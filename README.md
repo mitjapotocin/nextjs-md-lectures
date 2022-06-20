@@ -16,31 +16,33 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Content
 
-Md Content is stored in the posts folder
+Md Content is stored in the public folder
 Folder structure:
 
     .
     ├── books
         ├── book1
             ├── index.md
+            ├── img1.png
+            ├── img2.png
         ├── book2
             ├── index.md
     ├── chapters
         ├── chapter1
             ├── index.md
+            ├── img1.png
+            ├── img2.png
         ├── chapter2
             ├── index.md
         ├── chapter3
             ├── index.md
-
-All images should fe stored in the /public folder
 
 When defining a book you can include a list of chapters in the book's frontmatter. Chapter names must match folder names in the chapters folder.
 ```
 ---
 title: 'Single-Cell Gene Expression Analysis'
 subTitle: 'Working notes for the course on Functional Genomics and Proteomics, University of Ljubljana'
-coverImg: 'images/books/sc-gene-expression/orange.png'
+coverImg: '/orange.png'
 date: 'May 2022'
 chapters:
   - classification
