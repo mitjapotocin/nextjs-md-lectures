@@ -1,7 +1,7 @@
 ---
 title: 'Introduction to data analysis'
 subTitle: 'A hand on lecture at University of Ljubljana'
-coverImg: '/orange.png'
+coverImg: 'orange.png'
 date: 'May 1986'
 public: true
 chapters:

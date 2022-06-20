@@ -1,7 +1,7 @@
 ---
 title: 'Single-Cell Gene Expression Analysis'
 subTitle: 'Working notes for the course on Functional Genomics and Proteomics, University of Ljubljana'
-coverImg: '/orange.png'
+coverImg: 'orange.png'
 date: 'May 2022'
 public: true
 chapters:
@@ -22,6 +22,6 @@ and then install the add-ons for Bioinformatics and Single-Cell
 Data Analysis.
 
 <!!! width-30 !!!>
-![](/images/books/sc-gene-expression/fig1.png)
+![](fig1.png)
 
 ***Attribution-NonCommercial-NoDerivs CC BY-NC-ND***

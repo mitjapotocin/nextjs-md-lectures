@@ -1,13 +1,9 @@
-export function isAllowedPath(slug) {
+export function isAllowedPath(slug: string): boolean {
     return !(slug.includes('.DS_Store') || slug.includes('.md'));
 }
 
-export function parseMd(content, imgRelativePath = '') {
-    if (imgRelativePath) {
-        content = content
-            .replaceAll('](/', `](${imgRelativePath}/`)
-            .replaceAll('src="/', `img src="${imgRelativePath}/`);
-    }
+export function parseMd(content: string, imgRelativePath: string = '') {
+    content = addRelativePathToImages(content, imgRelativePath);
 
     const macroStart = '<!!!';
     const macroEnd = '!!!>';
@@ -29,6 +25,20 @@ export function parseMd(content, imgRelativePath = '') {
     let insert = `<div ${macro.map(m => ('data-' + m)).join(' ')}></div>` + '\n';
 
     return parseMd(content.substring(0, startIndex) + insert + content.substring(endIndex + macroEnd.length))
+}
+
+function addRelativePathToImages(
+    content: string,
+    imgRelativePath: string
+): string {
+    if (!imgRelativePath || !content) {
+        return content;
+    }
+
+    // Add relative path IF img src does NOT start with 'http' OR '/'
+    return content
+        .replace(/src="(?!(http)|(\/))/g, `src="${imgRelativePath}/`)
+        .replace(/\]\((?!(http)|(\/))/g, `](${imgRelativePath}/`);
 }
 
 module.exports = {
